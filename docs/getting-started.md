@@ -46,7 +46,7 @@ $ make build
 $ make run
 ```
 
-- For more details & options please check [Makefile](./Makefile).
+- For more details & options please check [Makefile](../Makefile).
 
 ## 2. Flag
 
@@ -68,7 +68,7 @@ Flags:
 
 ## 3. Configuration
 
-For more infomrations, please check [config/module](./config/).
+For more information, please check [config/module](../config).
 
 ```yaml
 # Global configuration
