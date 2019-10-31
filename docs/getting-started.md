@@ -14,7 +14,7 @@
 * Clone the repository & cd into it:
 
 ```bash
-$ git clone github.com/ntk148v/faythe
+$ git clone github.com/vCloud-DFTBA/faythe
 $ cd faythe
 ```
 
