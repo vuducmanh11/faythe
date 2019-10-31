@@ -1,6 +1,6 @@
 # Faythe
 
-[![license](https://img.shields.io/badge/license-Apache%20v2.0-blue.svg)](LICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/ntk148v/faythe)](https://goreportcard.com/report/github.com/ntk148v/faythe)
+[![license](https://img.shields.io/badge/license-Apache%20v2.0-blue.svg)](LICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/vCloud-DFTBA/faythe)](https://goreportcard.com/report/github.com/vCloud-DFTBA/faythe)
 
 ```
   _____                __  .__            

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ntk148v/faythe/config"
+	"github.com/vCloud-DFTBA/faythe/config"
 	"flag"
 	"log"
 	"os"

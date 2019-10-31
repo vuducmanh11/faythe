@@ -8,8 +8,8 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/ntk148v/faythe/config"
-	"github.com/ntk148v/faythe/utils"
+	"github.com/vCloud-DFTBA/faythe/config"
+	"github.com/vCloud-DFTBA/faythe/utils"
 )
 
 // TriggerSt2Rule gets Request then create a new request based on it.

@@ -12,9 +12,9 @@ import (
 	"github.com/prometheus/alertmanager/template"
 	"github.com/prometheus/common/model"
 
-	"github.com/ntk148v/faythe/config"
-	"github.com/ntk148v/faythe/handlers/openstack/auth"
-	"github.com/ntk148v/faythe/utils"
+	"github.com/vCloud-DFTBA/faythe/config"
+	"github.com/vCloud-DFTBA/faythe/handlers/openstack/auth"
+	"github.com/vCloud-DFTBA/faythe/utils"
 )
 
 // ScalePolicy describes the name of service (type OS::Heat::ScalingPolicy)

@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/ntk148v/faythe/config"
+	"github.com/vCloud-DFTBA/faythe/config"
 )
 
 type key int
