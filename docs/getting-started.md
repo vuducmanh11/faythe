@@ -14,7 +14,7 @@
 * Clone the repository & cd into it:
 
 ```bash
-$ git clone github.com/ntk148v/faythe
+$ git clone github.com/vCloud-DFTBA/faythe
 $ cd faythe
 ```
 
@@ -47,6 +47,16 @@ $ make run
 ```
 
 - For more details & options please check [Makefile](../Makefile).
+
+### 1.3. Use docker-compose
+
+- Update [sample config file](../examples/faythe.yml).
+
+- Run docker-compose, it will build faythe image, start faythe and etcd container.
+
+```
+$ docker-compose up -d
+```
 
 ## 2. Flag
 
