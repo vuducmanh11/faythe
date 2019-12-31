@@ -4,12 +4,18 @@
   - [1. First run](#1-first-run)
     - [1.1. Use executable file](#11-use-executable-file)
     - [1.2. Use Docker image](#12-use-docker-image)
+    - [1.3. Use docker-compose](#13-use-docker-compose)
   - [2. Flag](#2-flag)
   - [3. Configuration](#3-configuration)
     - [3.1. Global configuration](#31-global-configuration)
   - [3.2. Etcd configuration](#32-etcd-configuration)
 
 ## 1. First run
+
+* Deploy [Etcd cluster](https://github.com/etcd-io/etcd) if you haven't already had one. This is the heart of Faythe. Please note that:
+  * An etcd cluster needs a majority of nodes, a quorum, to agree on updates to the cluster state. For a cluster with n members, quorum is (n/2)+1.
+  * A 5-member etcd cluster can tolerate two member failures, which is enough in most cases.
+  * Check [Etcd FAQ](https://github.com/etcd-io/etcd/blob/master/Documentation/faq.md) for more details.
 
 * Clone the repository & cd into it:
 
