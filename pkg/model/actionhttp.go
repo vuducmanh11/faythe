@@ -23,14 +23,6 @@ type ActionHTTP struct {
 // Validate returns nil if all fields of the Action have valid values.
 func (a *ActionHTTP) Validate() error {
 
-	if err := a.validate(); err != nil {
-		return err
-	}
-
-	if err := a.URL.Validate(); err != nil {
-		return err
-	}
-
 	if a.Delay == "" {
 		a.Delay = "100ms"
 	}
@@ -42,6 +34,14 @@ func (a *ActionHTTP) Validate() error {
 	}
 	if a.Attempts == 0 {
 		a.Attempts = 10
+	}
+
+	if err := a.validate(); err != nil {
+		return err
+	}
+
+	if err := a.URL.Validate(); err != nil {
+		return err
 	}
 
 	return nil
