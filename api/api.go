@@ -92,6 +92,10 @@ func (a *API) Register(r *mux.Router) {
 		wrap(a.deleteScaler)).Methods("DELETE")
 	r.Handle("/scalers/{provider_id:[a-z 0-9]+}/{id:[a-z 0-9]+}",
 		wrap(a.updateScaler)).Methods("PUT")
+	r.Handle("/scalers/activate/{provider_id:[a-z 0-9]+}/{id:[a-z 0-9]+}",
+		wrap(a.activateScaler)).Methods("POST")
+	r.Handle("/scalers/deactivate/{provider_id:[a-z 0-9]+}/{id:[a-z 0-9]+}",
+		wrap(a.deactivateScaler)).Methods("POST")
 
 	// Name Resolver endpoints
 	r.Handle("/nresolvers", wrap(a.listNResolvers)).Methods("GET")

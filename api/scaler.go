@@ -184,6 +184,80 @@ func (a *API) deleteScaler(w http.ResponseWriter, req *http.Request) {
 	return
 }
 
+func (a *API) activateScaler(w http.ResponseWriter, req *http.Request) {
+// Activate a scaler
+	var (
+		vars map[string]string
+		pid string
+		sid string
+		path string
+	)
+
+	vars = mux.Vars(req)
+	pid = strings.ToLower(vars["provider_id"])
+	sid = strings.ToLower(vars["id"])
+	path = common.Path(model.DefaultScalerPrefix, pid, sid)
+	resp, err := a.etcdcli.DoGet(path, etcdv3.WithPrefix())
+	if err != nil {
+		a.respondError(w, apiError{
+			code: http.StatusInternalServerError,
+			err:  err,
+		})
+		return
+	}
+	for _, ev := range resp.Kvs {
+		var s model.Scaler
+		_ = json.Unmarshal(ev.Value, &s)
+		s.Active = true
+		raw, err := json.Marshal(&s)
+		_, err = a.etcdcli.DoPut(path, string(raw))
+		if err != nil {
+			a.respondError(w, apiError{
+				code: http.StatusInternalServerError,
+				err:  err,
+			})
+			return
+		}
+	}
+
+	a.respondSuccess(w, http.StatusOK, nil)
+	return
+
+}
+
+func (a *API) deactivateScaler(w http.ResponseWriter, req *http.Request) {
+// Deactivate a scaler
+	var (
+		vars map[string]string
+		pid  string
+		sid  string
+		path string
+	)
+
+	vars = mux.Vars(req)
+	pid = strings.ToLower(vars["provider_id"])
+	sid = strings.ToLower(vars["id"])
+	path = common.Path(model.DefaultScalerPrefix, pid, sid)
+	resp, err := a.etcdcli.DoGet(path, etcdv3.WithPrefix())
+	if err != nil {
+		a.respondError(w, apiError{
+			code: http.StatusInternalServerError,
+			err:  err,
+		})
+		return
+	}
+	for _, ev := range resp.Kvs {
+		var s model.Scaler
+		_ = json.Unmarshal(ev.Value, &s)
+		s.Active = false
+		raw, _ := json.Marshal(&s)
+		_, err = a.etcdcli.DoPut(path, string(raw))
+	}
+
+	a.respondSuccess(w, http.StatusOK, nil)
+	return
+}
+
 func (a *API) updateScaler(w http.ResponseWriter, req *http.Request) {
 	// Update a existed Scaler information
 }
